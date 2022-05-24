@@ -11,6 +11,8 @@ class Cart extends Component
     public $total = 0;
     public $totalCount = 0;
 
+    protected $listeners = ['cartChanged' => 'mount'];
+
     public function mount(){
         $cart = session()->get('cart');
         if (!isset($cart) or is_null(($cart))){
@@ -31,8 +33,9 @@ class Cart extends Component
             unset($cart[$id]);
             session()->put('cart', $cart);
         }
+        $this->emit('cartChanged');
         $this->dispatchBrowserEvent('alert',
-            ['type' => 'error',  'message' => 'Something is Wrong!']);
+            ['type' => 'success',  'message' => 'Товар успешно убран из корзины!']);
         //$this->render();
     }
     public function render()

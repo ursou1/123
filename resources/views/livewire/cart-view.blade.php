@@ -55,15 +55,9 @@
                                     <div class="coupon">
                                         <a class="button" href="/">Continue Shopping</a>
                                         <a class="button" wire:click="clearCart">Clear Cart</a>
-                                        <div class="cart-coupon">
-                                            <h3>Special instructions for seller</h3>
-                                            <label for="Textarea1" class="form-label visually-hidden">Instructions Seller</label>
-                                            <textarea class="form-control" id="Textarea1"></textarea>
-                                        </div>
+
                                     </div>
-                                    <div class="coupon2">
-                                        <a class="button" href="#/">Update Cart</a>
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-12 col-lg-5 col-12">
@@ -72,7 +66,11 @@
                                     <ul>
                                         <li>Total <span class="money">{{$total}}</span></li>
                                     </ul>
-                                    <a class="proceed-to-checkout-btn" href="checkout.html">Proceed to Checkout</a>
+                                    <a class="proceed-to-checkout-btn" href="/checkout">Proceed to Checkout</a>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Buy
+                                    </button>
+                                    <wire:modal/>
                                 </div>
                             </div>
                         </div>

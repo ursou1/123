@@ -28,6 +28,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::get('/checkout',[\App\Http\Controllers\CheckoutController::class,'index'])->name('checkout');
+Route::get('/buy',[\App\Http\Livewire\Modal::class,'store'])->name('order.store');
+
 Route::get('/',[\App\Http\Controllers\ProductController::class,'index']);
 Route::get('/single-product/{slug}',[\App\Http\Controllers\ProductController::class,'singleProduct'])->name('single-product');
 Route::get('/cart',[\App\Http\Controllers\CartController::class,'index'])->name('cart');

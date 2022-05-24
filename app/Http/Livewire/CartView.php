@@ -29,6 +29,7 @@ class CartView extends Component
             session()->put('cart', $cart);
         }
         $this->render();
+        $this->emit('cartChanged');
     }
     public function increment($id)
     {
@@ -39,7 +40,7 @@ class CartView extends Component
             $cart[$id]['quantity']++;
             session()->put('cart', $cart);
         }
-
+        $this->emit('cartChanged');
     }
     public function decrement($id)
     {
@@ -49,8 +50,8 @@ class CartView extends Component
         if(isset($cart[$id]) && $cart[$id]['quantity'] > 1){
             $cart[$id]['quantity']--;
             session()->put('cart', $cart);
-
         }
+        $this->emit('cartChanged');
     }
     public function render()
     {
@@ -66,6 +67,10 @@ class CartView extends Component
                 session()->put('cart', $cart);
             }
         $this->render();
+        $this->emit('cartChanged');
+        $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Корзина очищена']);
+
     }
     public function getTotal(){
         $total = 0;

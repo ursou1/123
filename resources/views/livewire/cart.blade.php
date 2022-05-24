@@ -29,8 +29,8 @@
         </div>
         <div class="cart-btn">
             <a href="/cart">View Cart</a>
-            <a href="checkout.html">Checkout</a>
-            <button type="button" wire:click="alertError" class="btn btn-danger">Error Alert</button>
+            <a href="/checkout">Checkout</a>
+
         </div>
     </div>
 

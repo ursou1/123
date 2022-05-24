@@ -1,0 +1,8 @@
+events
+    protected $listeners = ['cartChanged' => 'mount']; //класс который обновляется
+
+   $this->emit('cartChanged'); //запустить обновление 
+
+
+chekout
+
